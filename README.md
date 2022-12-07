@@ -1,11 +1,11 @@
-VNC repeater
-For complete info, see UltraVNC documentation :
+# VNC repeater
 
-https://www.uvnc.com/docs/uvnc-repeater.html
-https://www.uvnc.com/docs/uvnc-repeater/72-usage-repeater-.html
+For complete info, see UltraVNC documentation : 
+- https://www.uvnc.com/docs/uvnc-repeater.html 
+- https://www.uvnc.com/docs/uvnc-repeater/72-usage-repeater-.html 
+
 For run container :
+> docker run --name vncrepeater -d -t -p5901:5901 -p5500:5500 h963z57/vncrepeater:latest
 
-docker run --name vncrepeater -d -t -p5901:5901 -p5500:5500 h963z57/vncrepeater:latest
-
-To moniter the logs:
-docker logs <container name> -n
+For moniter the logs: 
+> docker logs <container name> -n
