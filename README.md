@@ -8,4 +8,4 @@ For run container :
 > docker run --name vncrepeater -d -t -p5901:5901 -p5500:5500 h963z57/vncrepeater:latest
 
 For moniter the logs: 
-> docker logs container name -n
+> docker logs container_name -n
