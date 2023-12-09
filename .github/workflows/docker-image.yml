@@ -39,4 +39,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: $LOGIN/$NAME:latest
+          tags: h963z57/uvncrepeater:latest
