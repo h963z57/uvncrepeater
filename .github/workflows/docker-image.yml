@@ -41,5 +41,5 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: name/app:latest,name/app:${GITHUB_REF:11}
+          tags: ${{ secrets.DOCKER_LOGIN }}/${{ secrets.DOCKER_NAME }}:latest,${{ secrets.DOCKER_LOGIN }}/${{ secrets.DOCKER_NAME }}:${GITHUB_REF:11}
           # tags: ${{ secrets.DOCKER_LOGIN }}/${{ secrets.DOCKER_NAME }}:${GITHUB_REF:11}
