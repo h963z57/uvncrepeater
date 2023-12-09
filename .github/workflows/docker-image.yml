@@ -1,5 +1,4 @@
 name: Docker Image CI
-
 # on:
 #   push:
 #     branches: [ "main" ]
@@ -8,20 +7,7 @@ on:
     tags:
     - '*.*.*'
 jobs:
-  # build_and_pub:
-  #   runs-on: [ubuntu-latest]
-  #   env:
-  #     LOGIN: ${{ secrets.DOCKER_LOGIN }}
-  #     NAME: ${{ secrets.DOCKER_NAME }}
-  #   steps:
-  #     - name: Login to docker
-  #       run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
-  #     - uses: actions/checkout@master
-  #     - name: Build image
-  #       run: docker build -t $LOGIN/$NAME:${GITHUB_REF:11} -f Dockerfile .
-  #     - name: Push image to docker
-  #       run: docker push $LOGIN/$NAME:${GITHUB_REF:11}
-  docker:
+  build_and_pub:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -34,7 +20,6 @@ jobs:
         run: |
           echo $RELEASE_VERSION
           echo ${{ steps.vars.outputs.tag }}
-    
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up QEMU
@@ -53,4 +38,3 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ secrets.DOCKER_LOGIN }}/${{ secrets.DOCKER_NAME }}:latest,${{ secrets.DOCKER_LOGIN }}/${{ secrets.DOCKER_NAME }}:${{ steps.vars.outputs.tag }}
-          # tags: ${{ secrets.DOCKER_LOGIN }}/${{ secrets.DOCKER_NAME }}:${GITHUB_REF:11}
