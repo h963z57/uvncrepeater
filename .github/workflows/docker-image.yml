@@ -6,7 +6,7 @@ name: Docker Image CI
 on:
   push:
     tags:
-    - '0.0.0'
+    - '*.*.*'
 jobs:
   # build_and_pub:
   #   runs-on: [ubuntu-latest]
