@@ -37,4 +37,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKER_LOGIN }}/${{ secrets.DOCKER_NAME }}:${GITHUB_REF:11}
+          tags: ${{ secrets.DOCKER_LOGIN }}/${{ secrets.DOCKER_NAME }}:latest
