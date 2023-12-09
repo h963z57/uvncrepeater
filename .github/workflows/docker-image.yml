@@ -34,9 +34,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          LOGIN: ${{ secrets.DOCKER_LOGIN }}
-          NAME: ${{ secrets.DOCKER_NAME }}
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: $LOGIN/$NAME:latest
+          tags: ${{ secrets.DOCKER_LOGIN }}/${{ secrets.DOCKER_NAME }}:latest
