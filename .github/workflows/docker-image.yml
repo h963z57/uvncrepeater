@@ -31,12 +31,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_LOGIN }}
           password: ${{ secrets.DOCKER_TOKEN }}
-          LOGIN: ${{ secrets.DOCKER_LOGIN }}
-          NAME: ${{ secrets.DOCKER_NAME }}
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
+          LOGIN: ${{ secrets.DOCKER_LOGIN }}
+          NAME: ${{ secrets.DOCKER_NAME }}
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: $LOGIN/$NAME:latest
+          tags: $LOGIN/$NAME:${GITHUB_REF:11}
